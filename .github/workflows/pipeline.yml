@@ -10,14 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python 3.5
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.5
+          python-version: 3.9
 
       - name: Install dependencies
         run: |
-          python -m pip3 install --upgrade pip
+          python -m pip install --upgrade pip
           pip install flake8
 
       - name: Lint with flake8
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: [3.5]
+        python-version: [3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip3 install --upgrade pip
+          python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
@@ -60,10 +60,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python 3.5
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.5
+          python-version: 3.9
 
       - name: deploy into heroku
         uses: akhileshns/heroku-deploy@v3.12.12
